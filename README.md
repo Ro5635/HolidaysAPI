@@ -20,7 +20,7 @@ API For Finding the Public Bank Holidays within the UK, England region. Designed
 
 Example:
 
-/holidays/goodfri/2017
+/holidays/eastermon/2017
 
 ## Implementation Details
 
@@ -30,8 +30,8 @@ Made this because I could not find the UK bank holidays as an API call without p
 
 To Test the lambda function localy with the web API use the [serverless](https://serverless.com/) framework and execute the following:
 
-''' javascript
+``` javascript
 sls offline start
-'''
+```
 
 :squirrel:
