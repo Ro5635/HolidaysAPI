@@ -8,11 +8,22 @@
 'use strict';
 
 const logger = require('morgan');
+const appPackage = require('./package');
 const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
 
 app.use(logger('dev'));
+
+// MiddleWares
+app.use(function (req, res, next) {
+
+    res.setHeader('X-Powered-By', 'Manx Cats');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    next();
+
+});
 
 // Routers
 const holidaysRouter = require('./Routers/holidaysRouter');
@@ -36,7 +47,7 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     if(err.status === 404){
-        res.send({Error: '404 Endpoint not found'});
+        res.send({Error: '404 Endpoint not found', Version: appPackage.version});
     } else {
         //TODO this error needs to be made more succinct before release
         res.send({Error: 'Unknown Error In Processing Request'});
