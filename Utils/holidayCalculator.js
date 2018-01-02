@@ -364,7 +364,7 @@ function getFirstAfterDate(afterDate, specifiedDay){
     // wed -> mon => 5
     // wed -> sat => 3
     if(specifiedDay < currentWeekDay){
-        daysForward = (7 - currentWeekDay) + specifiedDay;
+        daysForward = (8 - currentWeekDay) + specifiedDay;
 
     }else if(currentWeekDay < specifiedDay){
         daysForward = specifiedDay - currentWeekDay;
