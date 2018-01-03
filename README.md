@@ -55,6 +55,6 @@ serverless offline start
 
 ## Test
 
-Mocha tests have been compleated using the bank holidays dates provided on the [UK goverment website](https://www.gov.uk/bank-holidays), these can be found in the test directory.
+Mocha tests have been compleated using the bank holidays dates provided on the [UK goverment website](https://www.gov.uk/bank-holidays), these can be found in the test directory. All commits to the master branch are ran through the CI system, CircleCI. The CI system automaticaly builds on commit and runs all of the mocha tests.
 
 :squirrel:
