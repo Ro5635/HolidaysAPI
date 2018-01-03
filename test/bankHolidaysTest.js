@@ -1,6 +1,11 @@
 const assert = require('assert');
 const holidayCalculator = require('../Utils/holidayCalculator');
 
+/**
+ * This checks the calculated dates for the bank holidays against the dates provided by the UK goverment
+ * for bank holidays in the date range 2012 to 2019 at: https://www.gov.uk/bank-holidays
+ *
+ */
 describe('Bank Holiday Dates Test', function() {
     describe('Easter Monday Bank Holiday', function () {
         it('2017 Date Check', function () {

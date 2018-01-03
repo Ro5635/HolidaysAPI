@@ -1,77 +1,15 @@
+/**
+ * HolidayCalculator
+ *
+ * Provides functions that calculate the bank holiday dates for the main UK bank holidays.
+ */
+'use strict';
+
 const sugarDate = require('sugar-date');
 
 // Add the sugar-date extensions to the native prototype Date object
 sugarDate.extend();
 
-/**
- * Bank Holidays API
- *
- *
- */
-
-exports.handler = function(event, context, callback) {
-
-    // Needs to parse the imputed date and deduce weather it was a bank holiday
-
-    // or should it just return all of the bank holidays in the range..........
-
-    // Will need some logic to deduce the holidays, this can be done fairly easily because you would just need to
-    // look at the thing and deduce weather it has the specified week day on the day that the thing happens, an
-    // example of this is MayDay bank holiday, this is normally on the first monday of may, all of the things can then
-    // be calculated for a given year.
-
-    // as a result of this I suggest that it is best if the supplied parameter is the year that teh user want s all of the
-    // public holidays for and then it just works out when all of the discrete (there are 8 potential bank holidays in the UK each year)
-    // bank holidays are going to fall within that year, this will involve inspecting the date to see if it falls on a week day for some of them
-
-    // The majority of the bank holidays are on a fixed date, the biggest issue will be calculating easter, however it is not a huge issue
-    // just a wie bit fiddly, a solution to this issue is to do a thing.
-
-    // This will likely take the rest of the day to complete.
-
-    // It is only going to support the UK england region at its inception, this is because it is all that I have time to
-    //do at this point, also the other countries may have more complex calculations within them...
-
-    // the event will contain a date string, this will only need to be the year for which you want all of the bank holidays for,
-    // this can later be extended to have sending int he month as well and then sending back a reduced subset based on the month that was
-    // passed.
-
-    // Demo event: {year: 2017, region: ukeng}
-
-
-
-    console.log('event', event);
-
-    console.log('Attempting to get the date of easter: ');
-    const easterDate = getMayDayBankHolForYear(2018);
-    console.log(`Easter is on: ${easterDate} in 1996`);
-
-    console.log('Test getting first after date:');
-    console.log('Sunday: ' + getFirstAfterDate(new Date('04/01/2017'), 0));
-    console.log('Monday: ' + getFirstAfterDate(new Date('04/01/2017'), 1));
-    console.log('Tuesday: ' + getFirstAfterDate(new Date('04/01/2017'), 2));
-    console.log('Wednesday: ' + getFirstAfterDate(new Date('04/01/2017'), 3));
-    console.log('Thursday: ' + getFirstAfterDate(new Date('04/01/2017'), 4));
-    console.log('Friday: ' + getFirstAfterDate(new Date('04/01/2017'), 5));
-    console.log('Saturday: ' + getFirstAfterDate(new Date('04/01/2017'), 6));
-
-
-    console.log('Test getting first before date:');
-    console.log('Sunday: ' + getFirstBeforeDate(new Date('04/01/2017'), 0));
-    console.log('Monday: ' + getFirstBeforeDate(new Date('04/01/2017'), 1));
-    console.log('Tuesday: ' + getFirstBeforeDate(new Date('04/01/2017'), 2));
-    console.log('Wednesday: ' + getFirstBeforeDate(new Date('04/01/2017'), 3));
-    console.log('Thursday: ' + getFirstBeforeDate(new Date('04/01/2017'), 4));
-    console.log('Friday: ' + getFirstBeforeDate(new Date('04/01/2017'), 5));
-    console.log('Saturday: ' + getFirstBeforeDate(new Date('04/01/2017'), 6));
-
-
-    // Need to introduce some kind of testing framework....
-    // A unit testing thing would probably be the best bet...
-
-    callback(null, event);
-
-};
 
 /**
  * getEaster
@@ -150,8 +88,8 @@ exports.getEasterSunday = getEasterSunday;
  *
  * Gets the date of good friday for the passed year
  *
- * @param year
- * @returns {Date}
+ * @param year passed year to get the date of good Friday for
+ * @returns {Date} JS Date object representing good Friday
  */
 exports.getGoodFriday = function(year){
 
