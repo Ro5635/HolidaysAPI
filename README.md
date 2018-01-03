@@ -16,9 +16,16 @@ API For Finding the Public Bank Holidays within the UK, England region. Designed
 |New Years Day| newyearsbankhol         |
 |May Day      | maydaybankhol           |
 |Spring       | springbankhol           |
-|Summer       | getsummerbankhol        |
+|Summer       | summerbankhol        |
 
-Example:
+### Additional Days Avalible
+
+|Day | bankHolidayAPIIdentifier |
+|-----------:|-------------------------:|
+|Easter Sunday   | eastersun               |
+|Good Friday | goodfri  |
+
+Example:      
 
 /holidays/eastermon/2017
 
