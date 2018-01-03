@@ -33,6 +33,12 @@ const versionRouter = require('./Routers/versionRouter');
 app.use('/holidays/', holidaysRouter);
 app.use('/version/', versionRouter);
 
+// Handle requests to the base URL with a welcome message
+app.get('/', function(req, res) {
+    res.send({msg: "UK Holidays API",version : appPackage.version, docs: "https://github.com/Ro5635/HolidaysAPI"});
+
+});
+
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
