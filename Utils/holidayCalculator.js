@@ -219,6 +219,19 @@ exports.getMayDayBankHolForYear = function(year){
  */
 exports.getSpringBankHolForYear = function(year){
 
+    // Ensure that it is not 2002 or 2012 where there are
+    // exceptions to the usual calculated date to observe additional
+    // holiday for Queen's Jubilees.
+
+    if(year === 2012){
+        return new Date('06-04-2012');
+    }
+
+    if(year === 2002){
+        return new Date('06-04-2002');
+    }
+
+
     // Get a Date object for the last day in May
     const lastOfMay = new Date(`05/31/${year}`);
 
@@ -268,11 +281,11 @@ exports.getChristmasBankHoliday = function(year){
     const christmasDay = new Date(`12/25/${year}`);
 
     // is it a weekend?
-    if(christmasDay === 6){
+    if(christmasDay.getDay() === 6){
         // Return the first Monday after
         return getFirstAfterDate(christmasDay, 1);
 
-    }else if(christmasDay === 0){
+    }else if(christmasDay.getDay() === 0){
         // Return the first Tuesday after
         return getFirstAfterDate(christmasDay, 2);
 
@@ -364,7 +377,7 @@ function getFirstAfterDate(afterDate, specifiedDay){
     // wed -> mon => 5
     // wed -> sat => 3
     if(specifiedDay < currentWeekDay){
-        daysForward = (8 - currentWeekDay) + specifiedDay;
+        daysForward = (7 - currentWeekDay) + specifiedDay;
 
     }else if(currentWeekDay < specifiedDay){
         daysForward = specifiedDay - currentWeekDay;
@@ -416,3 +429,8 @@ function getFirstBeforeDate(beforeDate, specifiedDay){
     return beforeDate.addDays(-daysBackward);
 
 }
+
+// Make the internal get before and after functions available on the external interface of the module
+// for ease of testing
+exports.getFirstAfterDate = getFirstAfterDate;
+exports.getFirstBeforeDate = getFirstBeforeDate;

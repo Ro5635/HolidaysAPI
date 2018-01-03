@@ -139,7 +139,7 @@ router.get('/springbankhol/:year', function(req, res) {
 /**
  * get summer bank holiday date
  */
-router.get('/getsummerbankhol/:year', function(req, res) {
+router.get('/summerbankhol/:year', function(req, res) {
 
     const passedYear = req.params.year;
 
