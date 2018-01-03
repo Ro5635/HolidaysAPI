@@ -27,7 +27,6 @@
 ## fallback to using the latest cache if no exact match is found
 #- v1-dependencies-
 #
-#- run: yarn install
 #
 #- save_cache:
 #paths:
@@ -35,7 +34,6 @@
 #key: v1-dependencies-{{ checksum "package.json" }}
 #
 ## run tests!
-##    - run: yarn test
 #
 #    - run: echo "hello world"
 
@@ -46,4 +44,6 @@ jobs:
        - image: circleci/node:7.10
      steps:
        - checkout
-       - run: echo "hello world"
+       - run: yarn test
+       - run: yarn install
+#       - run: echo "hello world"

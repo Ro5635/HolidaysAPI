@@ -1,10 +1,10 @@
 {
   "name": "holidayapi",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple API to get bank holidays",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha --reporter mocha-circleci-reporter test/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "mocha": "^4.0.1",
+    "mocha-circleci-reporter": "0.0.2",
     "serverless-offline": "^3.16.0"
   }
 }
