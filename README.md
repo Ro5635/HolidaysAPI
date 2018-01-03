@@ -35,6 +35,7 @@ Example:
 The API is deployed and publicaly avalible at:
 
 https://holidayapi.robertcurran.uk/
+
 https://holidayapi.robertcurran.uk/holidays/goodfri/2019
 https://holidayapi.robertcurran.uk/version
 
