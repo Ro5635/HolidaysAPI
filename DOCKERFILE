@@ -1,0 +1,12 @@
+FROM node:alpine
+
+RUN mkdir /codeSrc
+
+COPY ./HolidaysAPI/ /codeSrc/
+
+COPY ./startApplication.sh /home/
+RUN chmod u+x /home/startApplication.sh
+
+RUN (cd /codeSrc/ && npm install && npm install -g serverless)
+
+ENTRYPOINT /home/dockerStartApplication.sh && /bin/sh
