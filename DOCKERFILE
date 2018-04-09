@@ -2,7 +2,7 @@ FROM node:alpine
 
 RUN mkdir /codeSrc
 
-COPY ./HolidaysAPI/ /codeSrc/
+COPY ./HolidaysAPI/ ./
 
 COPY ./startApplication.sh /home/
 RUN chmod u+x /home/startApplication.sh
