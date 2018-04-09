@@ -55,6 +55,17 @@ npm install
 serverless offline start
 ```
 
+## Docker Image
+
+ I have created a docker image that exposes the API on port 3000, this is avalible at:
+ 
+ https://hub.docker.com/r/ro5635/holidaysapi/
+ 
+ This can be aquired and executed using the following docker command:
+ 
+ ```bash
+  docker run --rm -p {localMachinePort}:3000  ro5635/holidaysapi
+```
 ## Test
 
 Mocha tests have been compleated using the bank holidays dates provided on the [UK goverment website](https://www.gov.uk/bank-holidays), these can be found in the test directory. All commits to the master branch are ran through the CI system, CircleCI. The CI system automaticaly builds on commit and runs all of the mocha tests.
