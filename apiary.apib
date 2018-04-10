@@ -1,0 +1,30 @@
+FORMAT: 1A
+
+# holidaysapi
+
+Get's dates for the passed bank holiday, as decribed on https://github.com/Ro5635/HolidaysAPI
+
+## Get Holidays Dates [/holidays/goodfri/{year}]
+
+### Get the date of a bank holiday [GET]
+
+Get the bank holiday date for good friday
+
++ Response 200 (application/json)
+
+
+        {
+            "date": "2008-03-21T00:00:00.000Z",
+            "passedYear":"2008"
+        }
+
+
+## Version  [/version]
+
+### Get API Version [GET]
+
++ Response 200 (application/json)
+
+        {
+            "version":"1.1.0"
+        }
